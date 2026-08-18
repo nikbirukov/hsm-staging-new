@@ -4,6 +4,9 @@ import react from '@vitejs/plugin-react'
 
 // https://vite.dev/config/
 export default defineConfig({
+  // Root by default (custom domain, Netlify, Vercel). CI sets VITE_BASE to
+  // '/<repo>/' for GitHub Pages project sites, which serve from a sub-path.
+  base: process.env.VITE_BASE || '/',
   plugins: [react()],
   build: {
     rollupOptions: {

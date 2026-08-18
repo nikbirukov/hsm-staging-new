@@ -2,15 +2,16 @@ import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Logo } from '../ui/Logo.jsx';
 import { Icon } from '../ui/Icon.jsx';
+import { url } from '../../lib/paths.js';
 
 const EASE = [0.2, 0.8, 0.2, 1];
 
 const LINKS = [
   { label: 'Solutions', hasMenu: true },
-  { label: 'Checklists', href: '/checklists/' },
-  { label: 'Pricing', href: '/pricing/' },
-  { label: 'Free Trial', href: '/free-trial/' },
-  { label: 'Book a Demo', href: '/book-platform-demo/' },
+  { label: 'Checklists', href: url('/checklists/') },
+  { label: 'Pricing', href: url('/pricing/') },
+  { label: 'Free Trial', href: url('/free-trial/') },
+  { label: 'Book a Demo', href: url('/book-platform-demo/') },
 ];
 
 const SOLUTIONS_MENU = {
@@ -86,7 +87,7 @@ export function Nav() {
           transition: 'box-shadow var(--dur-base) var(--ease-standard)',
         }}
       >
-        <a href="/" aria-label="The HS Manager home" style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>
+        <a href={url('/')} aria-label="The HS Manager home" style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>
           <Logo height={28} />
         </a>
 
@@ -159,7 +160,7 @@ export function Nav() {
         <div style={{ display: 'flex', alignItems: 'center', gap: 16 }} className="nav-desktop">
           <NavLink label="Login" />
           <a
-            href="/free-trial/"
+            href={url('/free-trial/')}
             className="nav-cta"
             style={{
               display: 'inline-flex', alignItems: 'center', gap: 6,
@@ -211,7 +212,7 @@ export function Nav() {
               flex: 1, textAlign: 'center', padding: '13px 0', borderRadius: 'var(--radius-pill)',
               border: '1px solid var(--border-default)', fontSize: 'var(--text-body)', fontWeight: 'var(--weight-semibold)', color: 'var(--text-strong)',
             }}>Login</a>
-            <a href="/free-trial/" style={{
+            <a href={url('/free-trial/')} style={{
               flex: 1, textAlign: 'center', padding: '13px 0', borderRadius: 'var(--radius-pill)',
               background: 'linear-gradient(135deg, var(--green-500), var(--green-600))', color: '#fff',
               fontSize: 'var(--text-body)', fontWeight: 'var(--weight-semibold)',

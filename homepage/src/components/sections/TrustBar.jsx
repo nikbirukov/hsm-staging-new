@@ -1,4 +1,5 @@
 import { Reveal } from '../ui/Reveal.jsx';
+import { url } from '../../lib/paths.js';
 
 const CLIENTS = [
   { name: 'GXO', file: 'gxo.png', width: 112 },
@@ -33,7 +34,7 @@ export function TrustBar({ heading = 'Trusted by safety & operations teams at', 
             {CLIENTS.map((c) => (
               <img
                 key={c.name}
-                src={`/logos/${c.file}`}
+                src={url(`/logos/${c.file}`)}
                 alt={c.name}
                 width={c.width}
                 style={{

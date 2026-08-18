@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Nav } from './components/sections/Nav.jsx';
 import { Icon } from './components/ui/Icon.jsx';
 import { TrialForm } from './components/sections/TrialForm.jsx';
+import { url } from './lib/paths.js';
 
 const EASE = [0.2, 0.8, 0.2, 1];
 
@@ -169,7 +170,7 @@ function FreeTrialApp() {
             {LOGOS.map((l) => (
               <img
                 key={l.name}
-                src={`/logos/${l.file}`}
+                src={url(`/logos/${l.file}`)}
                 alt={l.name}
                 width={l.width}
                 style={{ height: 24, width: l.width, objectFit: 'contain', filter: 'grayscale(1) brightness(0) opacity(.34)' }}

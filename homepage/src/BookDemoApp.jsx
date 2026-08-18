@@ -4,6 +4,7 @@ import { TrustBar } from './components/sections/TrustBar.jsx';
 import { Footer } from './components/sections/Footer.jsx';
 import { Icon } from './components/ui/Icon.jsx';
 import { DemoForm } from './components/sections/DemoForm.jsx';
+import { url } from './lib/paths.js';
 
 const EASE = [0.2, 0.8, 0.2, 1];
 
@@ -103,7 +104,7 @@ function BookDemoApp() {
                 textAlign: 'center', fontSize: 'var(--text-body-sm)',
                 color: 'var(--text-muted)', margin: '18px 0 0',
               }}>
-                Rather just try it? <a href="/free-trial/">Start a free 30-day trial</a> &mdash; no call needed.
+                Rather just try it? <a href={url('/free-trial/')}>Start a free 30-day trial</a> &mdash; no call needed.
               </p>
             </motion.div>
 

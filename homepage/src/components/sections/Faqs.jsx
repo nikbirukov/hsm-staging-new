@@ -3,6 +3,7 @@ import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { Icon } from '../ui/Icon.jsx';
 import { Reveal } from '../ui/Reveal.jsx';
+import { url } from '../../lib/paths.js';
 
 const EASE = [0.2, 0.8, 0.2, 1];
 
@@ -160,7 +161,7 @@ export function Faqs() {
               <p style={{ fontSize: 'var(--text-body-sm)', color: 'var(--text-muted)', lineHeight: 'var(--leading-relaxed)', margin: '0 0 16px' }}>
                 Talk it through with someone who knows the platform &mdash; not a sales script.
               </p>
-              <a href="/book-platform-demo/" className="faq-contact-link">
+              <a href={url('/book-platform-demo/')} className="faq-contact-link">
                 Book a 20-minute demo
                 <Icon name="arrow_forward" size={16} />
               </a>

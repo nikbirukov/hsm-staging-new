@@ -1,6 +1,7 @@
 import { Icon } from '../ui/Icon.jsx';
 import { Button } from '../ui/Button.jsx';
 import { Reveal } from '../ui/Reveal.jsx';
+import { url } from '../../lib/paths.js';
 
 const BENEFITS = [
   '70+ HSE-aligned inspection templates',
@@ -95,7 +96,7 @@ export function PricingCard() {
               </div>
 
               <div style={{ marginTop: 'auto', paddingTop: 20, borderTop: '1px solid var(--border-subtle)' }}>
-                <a href="/checklists/" style={{
+                <a href={url('/checklists/')} style={{
                   display: 'inline-flex', alignItems: 'center', gap: 6,
                   fontSize: 'var(--text-body-sm)', fontWeight: 'var(--weight-semibold)', color: 'var(--text-link)',
                 }}>
