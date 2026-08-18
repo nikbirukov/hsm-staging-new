@@ -1,11 +1,15 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { Icon } from '../ui/Icon.jsx';
 import { Button } from '../ui/Button.jsx';
-import { PhoneFrame } from '../ui/DeviceFrames.jsx';
+import { PhoneFrame, ScaledDevice } from '../ui/DeviceFrames.jsx';
+import { phoneHeight } from '../../lib/deviceSizes.js';
 import { AnswerQuestionsScreen } from '../ui/AppScreens.jsx';
 import { useResponsiveScale } from '../ui/useResponsiveScale.js';
 
 const EASE = [0.2, 0.8, 0.2, 1];
+
+// Natural design size; scaled as a whole so the drawn screen keeps proportion.
+const PHONE_W = 268;
 
 /* Cinematic-hero pattern: the phone owns the centre, the wordmark passes
    behind it for depth, and proof cards float in front overlapping its edges. */
@@ -138,9 +142,11 @@ export function HeroV2() {
               transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
               style={{ borderRadius: 46, filter: 'drop-shadow(0 40px 60px rgba(0,0,0,.55))' }}
             >
-              <PhoneFrame width={Math.round(268 * scale)}>
-                <AnswerQuestionsScreen />
-              </PhoneFrame>
+              <ScaledDevice width={PHONE_W} height={phoneHeight(PHONE_W)} scale={scale}>
+                <PhoneFrame width={PHONE_W}>
+                  <AnswerQuestionsScreen />
+                </PhoneFrame>
+              </ScaledDevice>
             </motion.div>
           </motion.div>
 

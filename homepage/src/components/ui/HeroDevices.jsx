@@ -1,9 +1,15 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { Icon } from './Icon.jsx';
-import { PhoneFrame, PhoneStatusBar, LaptopFrame } from './DeviceFrames.jsx';
+import { PhoneFrame, PhoneStatusBar, LaptopFrame, ScaledDevice } from './DeviceFrames.jsx';
+import { phoneHeight, laptopHeight } from '../../lib/deviceSizes.js';
 import { useResponsiveScale } from './useResponsiveScale.js';
 
 const EASE = [0.2, 0.8, 0.2, 1];
+
+// Natural design sizes. Devices always render at these and are scaled down as
+// a whole, so the drawn screens keep their proportions on small viewports.
+const LAPTOP_W = 425;
+const PHONE_W = 228;
 
 function DonutChart({ segments, size = 64, strokeWidth = 11 }) {
   const r = (size - strokeWidth) / 2;
@@ -310,9 +316,11 @@ export function HeroDevices() {
           animate={reduceMotion ? {} : { y: [0, -8, 0] }}
           transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
         >
-          <LaptopFrame width={425 * scale}>
-            <DashboardScreen />
-          </LaptopFrame>
+          <ScaledDevice width={LAPTOP_W} height={laptopHeight(LAPTOP_W)} scale={scale}>
+            <LaptopFrame width={LAPTOP_W}>
+              <DashboardScreen />
+            </LaptopFrame>
+          </ScaledDevice>
         </motion.div>
 
         <DeviceAnnotation
@@ -345,9 +353,11 @@ export function HeroDevices() {
           animate={reduceMotion ? {} : { y: [0, -10, 0] }}
           transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 0.4 }}
         >
-          <PhoneFrame width={228 * scale}>
-            <ChecklistScreen />
-          </PhoneFrame>
+          <ScaledDevice width={PHONE_W} height={phoneHeight(PHONE_W)} scale={scale}>
+            <PhoneFrame width={PHONE_W}>
+              <ChecklistScreen />
+            </PhoneFrame>
+          </ScaledDevice>
         </motion.div>
 
         <DeviceAnnotation

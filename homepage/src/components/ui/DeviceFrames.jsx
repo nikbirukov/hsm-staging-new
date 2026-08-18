@@ -1,3 +1,22 @@
+/**
+ * Shrinks a device uniformly, frame and drawn screen together.
+ *
+ * Passing a smaller `width` to a frame only shrinks the chrome — the screen
+ * content inside is laid out in fixed pixels, so it keeps its full size and
+ * gets clipped. Rendering at the natural width and scaling with a transform
+ * preserves the design's internal proportions exactly.
+ */
+export function ScaledDevice({ width, height, scale = 1, children, style }) {
+  if (scale === 1) return <div style={style}>{children}</div>;
+  return (
+    <div style={{ width: Math.round(width * scale), height: Math.round(height * scale), ...style }}>
+      <div style={{ width, height, transform: `scale(${scale})`, transformOrigin: 'top left' }}>
+        {children}
+      </div>
+    </div>
+  );
+}
+
 function ScreenGloss({ radius }) {
   return (
     <div
