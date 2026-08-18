@@ -87,7 +87,7 @@ export function Nav() {
           transition: 'box-shadow var(--dur-base) var(--ease-standard)',
         }}
       >
-        <a href={url('/')} aria-label="The HS Manager home" style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>
+        <a href={url('/')} aria-label="The HS Manager home" style={{ display: 'flex', alignItems: 'center', flexShrink: 0, minHeight: 44, paddingRight: 8 }}>
           <Logo height={28} />
         </a>
 

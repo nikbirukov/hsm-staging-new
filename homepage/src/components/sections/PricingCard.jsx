@@ -97,7 +97,7 @@ export function PricingCard() {
 
               <div style={{ marginTop: 'auto', paddingTop: 20, borderTop: '1px solid var(--border-subtle)' }}>
                 <a href={url('/checklists/')} style={{
-                  display: 'inline-flex', alignItems: 'center', gap: 6,
+                  display: 'inline-flex', alignItems: 'center', gap: 6, minHeight: 40,
                   fontSize: 'var(--text-body-sm)', fontWeight: 'var(--weight-semibold)', color: 'var(--text-link)',
                 }}>
                   Browse all 70+ checklists

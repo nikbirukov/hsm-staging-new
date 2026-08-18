@@ -1,6 +1,6 @@
 export function DeviceChrome({ urlPath, children, style }) {
   return (
-    <div style={{
+    <div className="device-chrome" style={{
       background: '#fff', borderRadius: 10, border: '0.8px solid #D0D0DE',
       boxShadow: 'inset 0 1px 0 rgba(255,255,255,.8), 0 1px 3px rgba(0,0,0,.08), var(--shadow-lg)',
       overflow: 'hidden', ...style,
@@ -22,7 +22,7 @@ export function DeviceChrome({ urlPath, children, style }) {
         </div>
         <div style={{ width: 30, flexShrink: 0 }} aria-hidden="true" />
       </div>
-      <div style={{ padding: '18px 18px 16px' }}>
+      <div className="device-chrome-body">
         {children}
       </div>
     </div>

@@ -43,6 +43,7 @@ function FloatingAnnotation({ number, icon, label, style, delay }) {
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay, ease: EASE }}
+      className="annotated-pin"
       style={{
         position: 'absolute', zIndex: 6, ...style,
         display: 'flex', alignItems: 'center', gap: 8,
@@ -85,13 +86,13 @@ export function AnnotatedShowcase() {
         alignItems: 'center',
       }} className="annotated-grid">
 
-        <Reveal y={26}>
+        <Reveal y={26} className="annotated-copy">
           <div className="hsm-eyebrow" style={{ marginBottom: 16 }}>See it in your hand</div>
 
           <h2
             className="hsm-display"
             style={{
-              fontSize: 'clamp(32px, 4vw, 50px)', margin: '0 0 20px', maxWidth: '14ch',
+              fontSize: 'clamp(30px, 4vw, 50px)', margin: '0 0 20px', maxWidth: '14ch',
               lineHeight: 'var(--leading-tight)', letterSpacing: 'var(--tracking-display)',
               backgroundImage: 'linear-gradient(90deg, var(--green-600), var(--navy-800))',
               WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent',
@@ -104,9 +105,9 @@ export function AnnotatedShowcase() {
             No re-typing from a paper clipboard back at a desk. What&rsquo;s recorded on the floor is what lands in the report.
           </p>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
+          <div className="annotated-features" style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
             {FEATURES.map((f) => (
-              <div key={f.title} style={{ display: 'flex', gap: 16, alignItems: 'flex-start' }}>
+              <div key={f.title} className="annotated-feature" style={{ display: 'flex', gap: 16, alignItems: 'flex-start' }}>
                 <span style={{
                   width: 40, height: 40, borderRadius: 'var(--radius-md)', flexShrink: 0,
                   background: 'var(--surface-brand-soft)', display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -123,7 +124,7 @@ export function AnnotatedShowcase() {
         </Reveal>
 
         <Reveal delay={0.12} y={26}>
-          <div style={{ position: 'relative', display: 'flex', justifyContent: 'center', padding: '20px 0' }}>
+          <div className="annotated-stage" style={{ position: 'relative', display: 'flex', justifyContent: 'center', padding: '20px 0' }}>
             <motion.div
               animate={reduceMotion ? {} : { y: [0, -8, 0] }}
               transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}

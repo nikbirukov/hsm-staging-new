@@ -14,8 +14,9 @@ export function AnimatedTabs({ tabs, defaultTab, onChange, layoutId = 'tab-pill'
     <div
       role="tablist"
       aria-label="Inspection template"
+      className={`hsm-tabs${sm ? ' hsm-tabs--sm' : ''}`}
       style={{
-        display: 'inline-flex', gap: 2, padding: 3,
+        display: 'inline-flex', gap: 2, padding: 3, maxWidth: '100%',
         background: 'var(--grey-100)', borderRadius: 'var(--radius-pill)',
       }}
     >
@@ -28,7 +29,7 @@ export function AnimatedTabs({ tabs, defaultTab, onChange, layoutId = 'tab-pill'
           onClick={() => select(tab)}
           style={{
             position: 'relative', zIndex: 1, cursor: 'pointer', whiteSpace: 'nowrap',
-            padding: sm ? '5px 11px' : '7px 15px', borderRadius: 'var(--radius-pill)',
+            padding: sm ? '5px 11px' : '7px 15px', borderRadius: 'var(--radius-pill)', minWidth: 0,
             fontFamily: 'inherit', fontSize: sm ? 'var(--text-micro)' : 'var(--text-caption)',
             fontWeight: 'var(--weight-semibold)',
             color: active === tab ? 'var(--text-strong)' : 'var(--text-muted)',

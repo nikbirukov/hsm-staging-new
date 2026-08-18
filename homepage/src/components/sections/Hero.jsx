@@ -18,7 +18,7 @@ export function Hero() {
         alignItems: 'center',
       }} className="hero-grid">
 
-        <div>
+        <div className="hero-copy">
           <motion.div
             initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, ease: EASE }}
@@ -49,6 +49,7 @@ export function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.24, ease: EASE }}
+            className="hero-actions"
             style={{ display: 'flex', flexWrap: 'wrap', gap: 12, marginBottom: 18 }}
           >
             <Button variant="primary" size="lg" pill iconEnd="arrow_forward">Start Free 30-Day Trial</Button>
@@ -58,7 +59,8 @@ export function Hero() {
           <motion.div
             initial={{ opacity: 0 }} animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.32 }}
-            style={{ display: 'flex', alignItems: 'center', gap: 18, fontSize: 'var(--text-body-sm)', color: 'var(--text-muted)' }}
+            className="hero-trust"
+            style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '10px 18px', fontSize: 'var(--text-body-sm)', color: 'var(--text-muted)' }}
           >
             <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}><Icon name="check_circle" size={16} color="var(--green-600)" fill={1} />No credit card required</span>
             <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}><Icon name="bolt" size={16} color="var(--green-600)" fill={1} />Live in under a day</span>
@@ -68,6 +70,7 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2, ease: EASE }}
+          className="hero-visual"
         >
           <HeroDevices />
           <div style={{

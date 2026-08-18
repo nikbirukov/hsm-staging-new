@@ -6,7 +6,7 @@ export function FinalCTA() {
     <section style={{ padding: '0 0 clamp(56px, 8vw, 104px)' }}>
       <div style={{ maxWidth: 'var(--max-content)', margin: '0 auto', padding: '0 var(--gutter-page-lg)' }}>
         <Reveal>
-          <div style={{
+          <div className="finalcta-panel" style={{
             position: 'relative', overflow: 'hidden', borderRadius: 'var(--radius-2xl)',
             padding: 'clamp(40px, 7vw, 80px)', textAlign: 'center',
             background: 'var(--surface-inverse)',
@@ -22,7 +22,7 @@ export function FinalCTA() {
               <p style={{ color: 'rgba(255,255,255,.72)', fontSize: 'var(--text-body-lg)', maxWidth: '52ch', margin: '0 auto 32px' }}>
                 Join safety and operations teams across the UK running audit-ready inspections from day one.
               </p>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, justifyContent: 'center' }}>
+              <div className="finalcta-actions" style={{ display: 'flex', flexWrap: 'wrap', gap: 12, justifyContent: 'center' }}>
                 <Button variant="primary" size="lg" pill iconEnd="arrow_forward">Start Free 30-Day Trial</Button>
                 <Button
                   variant="outline" size="lg" pill iconStart="calendar_month"

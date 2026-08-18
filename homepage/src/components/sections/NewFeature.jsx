@@ -164,7 +164,7 @@ export function NewFeature() {
         alignItems: 'center',
       }} className="feature-grid">
 
-        <Reveal y={26}>
+        <Reveal y={26} className="feature-copy">
           <div style={{ marginBottom: 18 }}>
             <NewFeatureBadge />
           </div>
@@ -183,9 +183,9 @@ export function NewFeature() {
             Deploy custom templates to your team instantly using the intuitive HS Manager Form Builder.
           </p>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 20, marginBottom: 32 }}>
+          <div className="feature-caps" style={{ display: 'flex', flexDirection: 'column', gap: 20, marginBottom: 32 }}>
             {CAPABILITIES.map((cap) => (
-              <div key={cap.title} style={{ display: 'flex', gap: 14, alignItems: 'flex-start' }}>
+              <div key={cap.title} className="feature-cap" style={{ display: 'flex', gap: 14, alignItems: 'flex-start' }}>
                 <span style={{
                   display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
                   width: 36, height: 36, borderRadius: 'var(--radius-md)', background: 'var(--surface-brand-soft)',
@@ -205,7 +205,7 @@ export function NewFeature() {
             ))}
           </div>
 
-          <div style={{ display: 'flex', gap: 'clamp(20px, 3vw, 36px)', marginBottom: 32, flexWrap: 'wrap' }}>
+          <div className="feature-stats" style={{ display: 'flex', gap: 'clamp(20px, 3vw, 36px)', marginBottom: 32, flexWrap: 'wrap' }}>
             {STATS.map((stat) => (
               <div key={stat.label}>
                 <div style={{ fontSize: 'var(--text-h2)', fontWeight: 'var(--weight-extrabold)', color: 'var(--text-strong)', lineHeight: 1.1 }}>
@@ -231,7 +231,7 @@ export function NewFeature() {
         </Reveal>
 
         <Reveal delay={0.1} y={26}>
-          <div style={{ maxWidth: 440, margin: '0 auto' }}>
+          <div className="feature-demo" style={{ maxWidth: 440, margin: '0 auto' }}>
             <FormBuilderDemo questions={questions} setQuestions={setQuestions} />
           </div>
         </Reveal>

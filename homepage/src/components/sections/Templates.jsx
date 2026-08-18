@@ -18,7 +18,7 @@ export function Templates() {
         display: 'grid', gridTemplateColumns: 'minmax(0,0.9fr) minmax(0,1.1fr)', gap: 'clamp(32px,5vw,64px)', alignItems: 'center',
       }} className="templates-grid">
 
-        <Reveal y={26}>
+        <Reveal y={26} className="templates-copy">
           <div className="hsm-eyebrow" style={{ marginBottom: 12 }}>70+ HSE-aligned templates</div>
           <h2 style={{ fontSize: 'var(--text-display-sm)', letterSpacing: 'var(--tracking-display)', lineHeight: 'var(--leading-tight)', marginBottom: 18 }}>
             Never start an inspection from a blank page
@@ -30,8 +30,8 @@ export function Templates() {
         </Reveal>
 
         <Reveal delay={0.12} y={26}>
-          <div style={{
-            display: 'flex', flexWrap: 'wrap', gap: 10, padding: 28,
+          <div className="templates-chips" style={{
+            display: 'flex', flexWrap: 'wrap', gap: 10, padding: 'clamp(18px, 4vw, 28px)',
             background: 'var(--surface-card)', border: '1px solid var(--border-subtle)',
             borderRadius: 'var(--radius-card)', boxShadow: 'var(--shadow-sm)',
           }}>

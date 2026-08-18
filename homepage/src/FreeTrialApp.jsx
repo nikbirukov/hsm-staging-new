@@ -166,14 +166,18 @@ function FreeTrialApp() {
           }}>
             Trusted by UK H&amp;S teams
           </h2>
-          <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: '16px 34px' }}>
+          <div className="trustbar-logos trustbar-logos--sm">
             {LOGOS.map((l) => (
               <img
                 key={l.name}
+                className="trustbar-logo"
                 src={url(`/logos/${l.file}`)}
                 alt={l.name}
                 width={l.width}
-                style={{ height: 24, width: l.width, objectFit: 'contain', filter: 'grayscale(1) brightness(0) opacity(.34)' }}
+                height={24}
+                loading="lazy"
+                decoding="async"
+                style={{ '--logo-w': `${l.width}px` }}
               />
             ))}
           </div>

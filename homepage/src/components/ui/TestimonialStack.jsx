@@ -78,7 +78,7 @@ export function TestimonialStack({ testimonials, visibleBehind = 2 }) {
               onPointerUp={endDrag}
               onPointerCancel={endDrag}
             >
-              <div style={{ padding: 'clamp(28px, 4vw, 40px)', height: '100%', display: 'flex', flexDirection: 'column' }}>
+              <div className="testimonial-card-body" style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
                 <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 14, marginBottom: 24 }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 14, minWidth: 0 }}>
                     <div style={{
@@ -101,10 +101,10 @@ export function TestimonialStack({ testimonials, visibleBehind = 2 }) {
                 </div>
 
                 <Icon name="format_quote" size={26} color="var(--green-300)" fill={1} style={{ marginBottom: 10, flexShrink: 0 }} />
-                <blockquote style={{
-                  margin: '0 0 24px', fontSize: 'var(--text-body-lg)', lineHeight: 'var(--leading-relaxed)',
+                <blockquote className="testimonial-quote" style={{
+                  margin: '0 0 24px', lineHeight: 'var(--leading-relaxed)',
                   color: 'var(--text-body)', flex: 1, minHeight: 0,
-                  display: '-webkit-box', WebkitLineClamp: 6, WebkitBoxOrient: 'vertical', overflow: 'hidden',
+                  display: '-webkit-box', WebkitBoxOrient: 'vertical', overflow: 'hidden',
                 }}>
                   &ldquo;{t.quote}&rdquo;
                 </blockquote>

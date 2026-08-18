@@ -2,7 +2,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { Icon } from './Icon.jsx';
 import { PhoneFrame, PhoneStatusBar, LaptopFrame, ScaledDevice } from './DeviceFrames.jsx';
 import { phoneHeight, laptopHeight } from '../../lib/deviceSizes.js';
-import { useResponsiveScale } from './useResponsiveScale.js';
+import { useFitScale } from './useFitScale.js';
 
 const EASE = [0.2, 0.8, 0.2, 1];
 
@@ -10,6 +10,24 @@ const EASE = [0.2, 0.8, 0.2, 1];
 // a whole, so the drawn screens keep their proportions on small viewports.
 const LAPTOP_W = 425;
 const PHONE_W = 228;
+
+// Laptop + phone minus their overlap, plus the bleed both tilts add. Once the
+// hero stacks there is nothing to bleed into, so the cluster must fit outright.
+const CLUSTER_W = 640;
+// Width of the hero's visual column at full desktop size. Scaling against this
+// instead keeps the deliberate bleed past the column, at a constant ratio, so
+// the approved desktop composition renders at scale 1 and narrower two-column
+// widths shrink with it rather than colliding with the copy.
+const DESKTOP_COL_W = 500;
+const STACK_BP = 900;
+
+const clusterAllowance = (pageWidth) => (pageWidth > STACK_BP ? DESKTOP_COL_W : CLUSTER_W);
+
+const PINS = [
+  { icon: 'photo_camera', label: 'GPS + time-stamped photos' },
+  { icon: 'query_stats', label: 'Live compliance scoring' },
+  { icon: 'mic', label: 'Voice-to-text dictation' },
+];
 
 function DonutChart({ segments, size = 64, strokeWidth = 11 }) {
   const r = (size - strokeWidth) / 2;
@@ -258,7 +276,7 @@ function DeviceAnnotation({ icon, label, style, delay = 0, scale = 1, transformO
   const { transform: baseTransform, ...restStyle } = style;
   const combinedTransform = [baseTransform, scale !== 1 ? `scale(${scale})` : null].filter(Boolean).join(' ');
   return (
-    <div style={{ position: 'absolute', zIndex: 6, ...restStyle, transform: combinedTransform || undefined, transformOrigin }}>
+    <div className="device-pin" style={{ position: 'absolute', zIndex: 6, ...restStyle, transform: combinedTransform || undefined, transformOrigin }}>
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
@@ -291,10 +309,11 @@ function DeviceAnnotation({ icon, label, style, delay = 0, scale = 1, transformO
 
 export function HeroDevices() {
   const reduceMotion = useReducedMotion();
-  const scale = useResponsiveScale();
+  const [fitRef, scale] = useFitScale(clusterAllowance);
 
   return (
-    <div style={{ position: 'relative', display: 'flex', alignItems: 'flex-start', justifyContent: 'center', padding: '52px 0 46px' }}>
+    <>
+    <div ref={fitRef} className="hero-devices" style={{ position: 'relative', display: 'flex', alignItems: 'flex-start', justifyContent: 'center', padding: '52px 0 46px' }}>
       <div aria-hidden="true" style={{
         position: 'absolute', left: '50%', bottom: 4, transform: 'translateX(-50%)',
         width: '68%', height: 28, borderRadius: '50%',
@@ -370,5 +389,17 @@ export function HeroDevices() {
         />
       </motion.div>
     </div>
+
+    {/* Stacked layouts drop the floating pins — at cluster scale their text
+        would be ~6px. The same three points return as a legible chip row. */}
+    <ul className="hero-pin-list">
+      {PINS.map((pin) => (
+        <li key={pin.label}>
+          <Icon name={pin.icon} size={14} color="var(--green-600)" fill={1} />
+          {pin.label}
+        </li>
+      ))}
+    </ul>
+    </>
   );
 }

@@ -19,7 +19,7 @@ export function PricingTeaser() {
             background: 'var(--surface-card)', border: '1px solid var(--border-subtle)', boxShadow: 'var(--shadow-md)',
             display: 'grid', gridTemplateColumns: 'minmax(0,1fr) auto', gap: 40, alignItems: 'center',
           }} className="pricing-grid">
-            <div>
+            <div className="pricing-teaser-copy">
               <div className="hsm-eyebrow" style={{ marginBottom: 12 }}>Simple, transparent pricing</div>
               <h2 style={{ fontSize: 'var(--text-h1)', marginBottom: 20 }}>No hidden fees. No sales games.</h2>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
@@ -32,10 +32,7 @@ export function PricingTeaser() {
               </div>
             </div>
 
-            <div style={{
-              textAlign: 'center', padding: '28px 40px', borderRadius: 'var(--radius-lg)',
-              background: 'var(--surface-sunken)', minWidth: 260,
-            }}>
+            <div className="pricing-teaser-price">
               <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'center', gap: 4 }}>
                 <span style={{ fontSize: 'var(--text-body-lg)', color: 'var(--text-muted)' }}>&pound;</span>
                 <span className="hsm-display" style={{ fontSize: 48 }}>20</span>

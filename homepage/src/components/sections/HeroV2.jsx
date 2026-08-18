@@ -4,7 +4,7 @@ import { Button } from '../ui/Button.jsx';
 import { PhoneFrame, ScaledDevice } from '../ui/DeviceFrames.jsx';
 import { phoneHeight } from '../../lib/deviceSizes.js';
 import { AnswerQuestionsScreen } from '../ui/AppScreens.jsx';
-import { useResponsiveScale } from '../ui/useResponsiveScale.js';
+import { useFitScale } from '../ui/useFitScale.js';
 
 const EASE = [0.2, 0.8, 0.2, 1];
 
@@ -66,7 +66,9 @@ function ProofCard({ icon, title, body, style, float, delay }) {
 
 export function HeroV2() {
   const reduceMotion = useReducedMotion();
-  const scale = useResponsiveScale();
+  // Fits the phone to the stage rather than stepping it at breakpoints, which
+  // left it at ~150px on a phone screen.
+  const [stageRef, scale] = useFitScale(PHONE_W + 40, { max: 1 });
 
   return (
     <section className="v2-hero">
@@ -96,7 +98,7 @@ export function HeroV2() {
             PDF reports before you&rsquo;ve left the floor.
           </p>
 
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, marginBottom: 26 }}>
+          <div className="hero-actions" style={{ display: 'flex', flexWrap: 'wrap', gap: 12, marginBottom: 26 }}>
             <Button variant="primary" size="lg" pill iconEnd="arrow_forward">Start Free 30-Day Trial</Button>
             <Button
               variant="outline" size="lg" pill iconStart="calendar_month"
@@ -109,7 +111,7 @@ export function HeroV2() {
             </Button>
           </div>
 
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px 22px', fontSize: 'var(--text-body-sm)', color: 'rgba(255,255,255,.5)' }}>
+          <div className="hero-trust" style={{ display: 'flex', flexWrap: 'wrap', gap: '10px 22px', fontSize: 'var(--text-body-sm)', color: 'rgba(255,255,255,.5)' }}>
             {['No card details', '70+ HSE-aligned templates', 'Works offline'].map((t) => (
               <span key={t} style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
                 <Icon name="check_circle" size={16} color="var(--green-400)" fill={1} />
@@ -119,7 +121,7 @@ export function HeroV2() {
           </div>
         </motion.div>
 
-        <div className="v2-hero-stage">
+        <div className="v2-hero-stage" ref={stageRef}>
           {/* Wordmark sits behind the device — the phone occludes its middle. */}
           <motion.span
             aria-hidden="true"

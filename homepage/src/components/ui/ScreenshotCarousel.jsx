@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { useReducedMotion } from 'framer-motion';
 import { Icon } from './Icon.jsx';
 import { PhoneFrame } from './DeviceFrames.jsx';
-import { useResponsiveScale } from './useResponsiveScale.js';
+import { useFitScale } from './useFitScale.js';
 
 const EASE = 'cubic-bezier(.2,.8,.2,1)';
 const BASE_WIDTH = 232; // +32% over the original 176px reference size
@@ -16,7 +16,10 @@ export function ScreenshotCarousel({ screens, autoPlay = true, interval = 4200 }
   const [paused, setPaused] = useState(false);
   const [dragUnits, setDragUnits] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
-  const responsiveScale = useResponsiveScale();
+  // Sized from the space the stage actually has, capped at the drawing's
+  // natural width. A stepped scale shrank the centre card to ~130px on a phone,
+  // which put the drawn screen text below 6px.
+  const [stageRef, responsiveScale] = useFitScale(BASE_WIDTH + 48, { max: 1 });
   const reduceMotion = useReducedMotion();
   const dragRef = useRef({ startX: 0, history: [] });
   const dragUnitsRef = useRef(0);
@@ -73,15 +76,16 @@ export function ScreenshotCarousel({ screens, autoPlay = true, interval = 4200 }
 
   return (
     <div
+      ref={stageRef}
       style={{ position: 'relative', width: '100%', maxWidth: 1080, margin: '0 auto' }}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => !isDragging && setPaused(false)}
     >
       <div
         style={{
-          // Derived from the card itself, not a vw clamp — the cards resize in
-          // discrete steps via useResponsiveScale, which vw units can't track,
-          // and a short stage clips the tallest (centre) card top and bottom.
+          // Derived from the card itself, not a vw clamp — the card is scaled
+          // from a measured stage width, which vw units cannot track, and a
+          // short stage clips the tallest (centre) card top and bottom.
           position: 'relative',
           height: Math.round(BASE_WIDTH * PHONE_ASPECT * responsiveScale) + 48,
           display: 'flex', alignItems: 'center', justifyContent: 'center', perspective: 1400,
