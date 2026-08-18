@@ -22,7 +22,7 @@ export function PricingTeaser() {
             <div className="pricing-teaser-copy">
               <div className="hsm-eyebrow" style={{ marginBottom: 12 }}>Simple, transparent pricing</div>
               <h2 style={{ fontSize: 'var(--text-h1)', marginBottom: 20 }}>No hidden fees. No sales games.</h2>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+              <div className="pricing-teaser-list" style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                 {INCLUDED.map((item) => (
                   <div key={item} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                     <Icon name="check_circle" size={18} color="var(--green-600)" fill={1} />

@@ -1021,7 +1021,7 @@ button {
   .hero-copy { text-align: center; }
   .hero-copy .hsm-eyebrow { justify-content: center; }
   .hero-copy h1,
-  .hero-copy p { margin-left: auto; margin-right: auto; }
+  .hero-copy p { margin-left: auto !important; margin-right: auto !important; }
   .hero-actions,
   .hero-trust { justify-content: center; }
   .hero-visual { margin-top: 8px; }
@@ -1070,7 +1070,7 @@ button {
   .annotated-copy { text-align: center; }
   .annotated-copy .hsm-eyebrow { justify-content: center; }
   .annotated-copy h2,
-  .annotated-copy > p { margin-left: auto; margin-right: auto; }
+  .annotated-copy > p { margin-left: auto !important; margin-right: auto !important; }
   .annotated-copy h2 { max-width: 20ch !important; }
   .annotated-features { max-width: 460px; margin: 0 auto; }
   .annotated-feature { text-align: left; }
@@ -1083,7 +1083,7 @@ button {
 @media (max-width: 900px) {
   .templates-copy { text-align: center; }
   .templates-copy .hsm-eyebrow { justify-content: center; }
-  .templates-copy p { margin-left: auto; margin-right: auto; }
+  .templates-copy p { margin-left: auto !important; margin-right: auto !important; }
   .templates-chips { justify-content: center; }
 }
 @media (max-width: 560px) {
@@ -1094,7 +1094,7 @@ button {
 @media (max-width: 900px) {
   .feature-copy { text-align: center; }
   .feature-copy h2,
-  .feature-copy > p { margin-left: auto; margin-right: auto; }
+  .feature-copy > p { margin-left: auto !important; margin-right: auto !important; }
   .feature-caps { max-width: 460px; margin-left: auto; margin-right: auto; }
   .feature-cap { text-align: left; }
   .feature-stats { justify-content: center; }
@@ -1137,7 +1137,7 @@ button {
 @media (max-width: 900px) {
   .pricing-teaser-copy { text-align: center; }
   .pricing-teaser-copy .hsm-eyebrow { justify-content: center; }
-  .pricing-teaser-copy > div { align-items: flex-start; max-width: 380px; margin: 0 auto; text-align: left; }
+  .pricing-teaser-list { align-items: flex-start; max-width: 380px; margin: 0 auto; text-align: left; }
   .pricing-grid { gap: 28px !important; }
   .pricing-teaser-price { min-width: 0; padding: 26px clamp(16px, 5vw, 32px); }
 }
@@ -1177,7 +1177,8 @@ button {
    Same one-axis composition as the main hero so the two pages agree. */
 @media (max-width: 900px) {
   .v2-hero-copy { text-align: center; }
-  .v2-hero-copy p { margin-left: auto; margin-right: auto; }
+  .v2-hero-copy h1,
+  .v2-hero-copy p { margin-left: auto !important; margin-right: auto !important; }
 }
 @media (max-width: 560px) {
   .v2-hero-copy h1 { font-size: clamp(30px, 8.4vw, 38px) !important; }
