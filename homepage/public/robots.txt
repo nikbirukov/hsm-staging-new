@@ -1,0 +1,4 @@
+# Staging build of thehsmanager.co.uk — must never be indexed.
+# It would otherwise compete with the live site for the same queries.
+User-agent: *
+Disallow: /
