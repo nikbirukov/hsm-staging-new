@@ -1,0 +1,26 @@
+<!-- @dsCard group="Components" viewport="700x330" name="Navigation — sidebar, top bar, tabs" subtitle="Navy rail with a green active pill" -->
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;padding:20px;background:var(--surface-page);font-family:var(--font-sans)}.row{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-bottom:14px}.row:last-child{margin-bottom:0}.lbl{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--text-muted);font-weight:700;width:100%;margin-bottom:-4px}</style></head><body><div id="root"></div>
+<script type="text/babel">
+const { SidebarNav, TopBar, Tabs, Button } = window.HSManagerDesignSystem_7bf991;
+function Demo(){
+const [a,setA]=React.useState('dash');const [t,setT]=React.useState('Open');
+return (<div style={{display:'flex',gap:20,height:290}}>
+<div style={{borderRadius:'var(--radius-card)',overflow:'hidden',boxShadow:'var(--shadow-sm)'}}>
+<SidebarNav width={210} active={a} onSelect={setA} style={{height:'100%'}} items={[
+{id:'dash',label:'Dashboard',icon:'space_dashboard'},{id:'insp',label:'Inspections',icon:'assignment_turned_in'},
+{id:'act',label:'Actions',icon:'flag',count:12},{id:'tpl',label:'Templates',icon:'library_books'},
+{id:'sites',label:'Sites & teams',icon:'warehouse'},{id:'set',label:'Settings',icon:'settings'}]} />
+</div>
+<div style={{flex:1,display:'grid',gap:16,alignContent:'start'}}>
+<div style={{borderRadius:'var(--radius-card)',overflow:'hidden',boxShadow:'var(--shadow-sm)'}}>
+<TopBar title="Actions" subtitle="Daventry DC · 4 sites" actions={<Button size="sm" iconStart="add">New</Button>} user={{name:'Sam Okoye',role:'H&S Manager',initials:'SO'}} />
+</div>
+<Tabs tabs={['Open','Resolved','All']} active={t} onChange={setT} style={{justifySelf:'start'}} />
+</div></div>);}
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo/>);
+</script></body></html>

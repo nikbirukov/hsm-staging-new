@@ -1,0 +1,20 @@
+<!-- @dsCard group="Web dashboard" viewport="1400x900" name="myaccount.thehsmanager.co.uk" subtitle="Dashboard, inspections, actions and report view" -->
+<!-- @startingPoint section="Web dashboard" subtitle="Sidebar app shell with dashboard, tables and report" viewport="1400x900" -->
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>HS Manager — dashboard</title>
+<link rel="icon" href="../../assets/favicon.ico">
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>html,body{height:100%}body{margin:0;background:var(--surface-page)}#root{height:100vh}</style></head>
+<body><div id="root"></div>
+<script type="text/babel" src="data.jsx"></script>
+<script type="text/babel" src="AppShell.jsx"></script>
+<script type="text/babel" src="DashboardScreen.jsx"></script>
+<script type="text/babel" src="InspectionsScreen.jsx"></script>
+<script type="text/babel" src="ActionsScreen.jsx"></script>
+<script type="text/babel" src="ReportScreen.jsx"></script>
+<script type="text/babel">
+ReactDOM.createRoot(document.getElementById('root')).render(<window.AppShell/>);
+</script></body></html>

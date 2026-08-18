@@ -1,0 +1,20 @@
+<!-- @dsCard group="Components" viewport="700x330" name="Feedback — status, alerts, progress" subtitle="Pass / Fail / N/A vocabulary" -->
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;padding:20px;background:var(--surface-page);font-family:var(--font-sans)}.row{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-bottom:14px}.row:last-child{margin-bottom:0}.lbl{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--text-muted);font-weight:700;width:100%;margin-bottom:-4px}</style></head><body><div id="root"></div>
+<script type="text/babel">
+const { StatusPill, Alert, ProgressBar, EmptyState, Button } = window.HSManagerDesignSystem_7bf991;
+function Demo(){return (<div>
+<div class="row"><span class="lbl">Status</span>
+<StatusPill status="pass" /><StatusPill status="fail" /><StatusPill status="na" /><StatusPill status="open" /><StatusPill status="overdue" /><StatusPill status="resolved" /><StatusPill status="synced" /><StatusPill status="pending" /></div>
+<div class="row"><StatusPill status="pass" solid /><StatusPill status="fail" solid /><StatusPill status="open" solid /><StatusPill status="na" solid size="sm" /></div>
+<div style={{display:'grid',gap:12,marginTop:14}}>
+<Alert tone="warning" title="3 inspections pending sync">They will upload automatically when the device reconnects.</Alert>
+<Alert tone="success" title="Racking inspection signed off" action={<Button size="sm" variant="outline">View</Button>} />
+<ProgressBar label="Questions answered" value={14} max={22} showValue />
+</div></div>);}
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo/>);
+</script></body></html>
